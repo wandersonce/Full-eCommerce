@@ -12,6 +12,9 @@
     <div class="grid-container">
         <header class="header">
             <div class="brand">
+                <button onclick="openMenu()">
+                    &#9776;
+                </button>
                 <a href="index.html">WanderCommerce</a>
             </div>
             <div class="header-links">
@@ -19,6 +22,18 @@
                 <a href="signin">Sign In</a>
             </div>
         </header>
+        <aside class="sidebar">
+            <h3>Shopping Categories</h3>
+            <button class="sidebar-close-button" onclick="closeMenu()">x</button>
+            <ul>
+                <li>
+                    <a href="index.html">Pants</a>
+                </li>
+                <li>
+                    <a href="index.html">Shirts</a>
+                </li>
+            </ul>
+        </aside>
         <main class="main">
             <div class="content">
                 <ul class="products">
@@ -93,6 +108,16 @@
         </main>
         <footer class="footer">All right reserved.</footer>
     </div>
+
+    <script>
+        function openMenu() {
+            document.querySelector(".sidebar").classList.add("open");
+        }
+
+        function closeMenu() {
+            document.querySelector(".sidebar").classList.remove("open");
+        }
+    </script>
 </body>
 
 </html>
