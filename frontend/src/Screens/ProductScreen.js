@@ -29,6 +29,24 @@ function ProductScreen(props) {
                         </li>
                     </ul>
                 </div>
+                <div className="details-action">
+                    <ul>
+                        <li>Price: ${product.price}</li>
+                        <li>Status: ${product.price}</li>
+                        <li>
+                            Qty:
+                            <select>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                        </li>
+                        <li>
+                            <button>Add to Cart</button>
+                        </li>
+                    </ul>
+                </div>
             </div>
             <h1>{product.name}</h1>
         </div>
