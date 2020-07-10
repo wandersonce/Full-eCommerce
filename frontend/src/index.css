@@ -228,3 +228,7 @@ a:hover{
   border: .1rem #404040 solid;
   background-color: #f0c140d0;
 }
+
+.out-stock{
+  color: red;
+}

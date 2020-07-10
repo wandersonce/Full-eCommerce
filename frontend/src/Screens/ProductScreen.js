@@ -17,6 +17,10 @@ function ProductScreen(props) {
         }
     }, [])
 
+    const handleAddToCart = () => {
+        props.history.push("/cart/" + props.match.params.id + "?qty=" + qty)
+    };
+
     return (
 
         <div>
@@ -48,17 +52,24 @@ function ProductScreen(props) {
                             <div className="details-action">
                                 <ul>
                                     <li>Price: ${product.price}</li>
-                                    <li>Status:</li>
+                                    <li>Status:                                         {
+                                        product.countInStock > 0 ? <b>In Stock</b>
+                                            : <b className="out-stock">Out of stock</b>
+                                    }
+                                    </li>
                                     <li>
                                         Qty:
                                         <select value={qty} onChange={(e) => { setQty(e.target.value) }}> //*User will change the state when change the value.
                                             {[...Array(product.countInStock).keys()].map(x =>  //* Making the option value according with the qty in stock from DB.
-                                                <option value={x + 1}>{x + 1}</option>
+                                                <option key={x + 1} value={x + 1}>{x + 1}</option>
                                             )}
                                         </select>
                                     </li>
                                     <li>
-                                        <button className="button">Add to Cart</button>
+                                        {
+                                            product.countInStock > 0 && <button onClick={handleAddToCart} className="button">Add to Cart</button>
+                                        }
+
                                     </li>
                                 </ul>
                             </div>
