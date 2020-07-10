@@ -1,10 +1,11 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import { productListReducer } from './reducers/productReducers';
+import { productListReducer, productDetailsReducer } from './reducers/productReducers';
 
 const initialState = {};
-const reducer = combineReducers({
+const reducer = combineReducers({   //* Just using the function from reducers and using with a different name.
     productList: productListReducer,
+    productDetails: productDetailsReducer,
 });
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; //* It will check if you have the extension Redux_DevTolls if not will use the compose itself.
