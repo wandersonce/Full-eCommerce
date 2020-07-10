@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -12,15 +12,14 @@ function HomeScreen(props) {
 
     useEffect(() => {
         dispatch(listProducts())
-
         return () => {
             //
         }
     }, [])
 
     return (
-        loading ? <div> Loading... </div> :
-            error ? <div>{error}</div> :
+        loading ? <div> Loading... </div> : //* Will show while getting data from the database.
+            error ? <div>{error}</div> : //* In case of error will show the error on the screen.
 
                 <ul className="products">
                     {
@@ -45,4 +44,3 @@ function HomeScreen(props) {
 }
 
 export default HomeScreen;
-

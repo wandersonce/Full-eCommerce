@@ -8,11 +8,11 @@ import ProductScreen from './screens/ProductScreen';
 
 function App() {
 
-  const openMenu = () => {
+  const openMenu = () => {  //* Sidebar open function.
     document.querySelector(".sidebar").classList.add("open");
   }
 
-  const closeMenu = () => {
+  const closeMenu = () => { //* Sidebar close function.
     document.querySelector(".sidebar").classList.remove("open");
   }
 
