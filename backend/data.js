@@ -8,7 +8,8 @@ export default {
             price: 60,
             brand: 'Nike',
             rating: 4.6,
-            numReviews: 10
+            numReviews: 10,
+            countInStock: 6,
         },
         {
             name: 'Fit Shirt',
@@ -17,7 +18,8 @@ export default {
             price: 50,
             brand: 'Nike',
             rating: 4.0,
-            numReviews: 7
+            numReviews: 7,
+            countInStock: 10
         },
         {
             _id: '1234',
@@ -27,7 +29,8 @@ export default {
             price: 70,
             brand: 'Nike',
             rating: 4.7,
-            numReviews: 9
+            numReviews: 9,
+            countInStock: 7
         },
         {
             _id: '12345',
@@ -37,7 +40,8 @@ export default {
             price: 60,
             brand: 'Nike',
             rating: 4.6,
-            numReviews: 10
+            numReviews: 10,
+            countInStock: 9
         },
         {
             _id: '123456',
@@ -47,7 +51,8 @@ export default {
             price: 50,
             brand: 'Nike',
             rating: 4.0,
-            numReviews: 7
+            numReviews: 7,
+            countInStock: 4
         },
         {
             _id: '1234567',
@@ -57,7 +62,8 @@ export default {
             price: 70,
             brand: 'Nike',
             rating: 4.7,
-            numReviews: 9
+            numReviews: 9,
+            countInStock: 5
         },
         {
             _id: '12345678',
@@ -67,7 +73,8 @@ export default {
             price: 60,
             brand: 'Nike',
             rating: 4.6,
-            numReviews: 10
+            numReviews: 10,
+            countInStock: 1
         },
         {
             _id: '123456789',
@@ -77,7 +84,8 @@ export default {
             price: 50,
             brand: 'Nike',
             rating: 4.0,
-            numReviews: 7
+            numReviews: 7,
+            countInStock: 60
         },
         {
             _id: '1234567890',
@@ -87,7 +95,8 @@ export default {
             price: 70,
             brand: 'Nike',
             rating: 4.7,
-            numReviews: 9
+            numReviews: 9,
+            countInStock: 8
         },
     ]
 }

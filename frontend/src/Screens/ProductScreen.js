@@ -1,15 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { detailsProduct } from '../actions/productActions';
 
 function ProductScreen(props) {
+    const [qty, setQty] = useState(1);
+
     const productDetails = useSelector(state => state.productDetails);
     const { product, loading, error } = productDetails;
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(detailsProduct(props.match.params.id));
+        dispatch(detailsProduct(props.match.params.id)); //* It needs send the ID from params to check on the backend.
         return () => {
             //
         }
@@ -49,11 +51,10 @@ function ProductScreen(props) {
                                     <li>Status:</li>
                                     <li>
                                         Qty:
-                        <select>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
+                                        <select value={qty} onChange={(e) => { setQty(e.target.value) }}> //*User will change the state when change the value.
+                                            {[...Array(product.countInStock).keys()].map(x =>  //* Making the option value according with the qty in stock from DB.
+                                                <option value={x + 1}>{x + 1}</option>
+                                            )}
                                         </select>
                                     </li>
                                     <li>
