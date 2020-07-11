@@ -80,5 +80,5 @@ function ProductScreen(props) {
     )
 }
 
-
+//! PAROU 2:29
 export default ProductScreen;

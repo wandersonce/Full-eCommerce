@@ -84,10 +84,10 @@ a:hover{
 .products li{
   list-style-type: none;
   padding: 0;
-  flex: 0 1 34rem;
-  margin: 1rem;
+  flex: 0 1 50rem;
+  margin: 2rem;
   height: 50rem;
-  border-bottom: .1rem #c0c0c0 solid;
+  border-bottom: .1rem #d3d3d3 solid;
 }
 .product{
   display: flex;
@@ -97,8 +97,8 @@ a:hover{
 }
 
 .product-image{
-  max-width: 32rem;
-  max-height: 32rem;
+  max-width: 38rem;
+  max-height: 38rem;
 }
 
 .product-name{
@@ -163,14 +163,14 @@ a:hover{
 
 .details{
   display: flex;
-  justify-content: space-between;
+/* justify-content: space-between; */
   align-items: flex-start;
   flex-wrap: wrap;
   padding: 1rem;
 }
 
 .details-image{
-  flex: 1 1;
+  flex: 1 1 2;
 }
 
 .details-image img{
@@ -179,16 +179,19 @@ a:hover{
 }
 
 .details-info{
-  flex: 1 1;
-  width: 50rem;
-  margin-left: 10px;
+  flex: 1 1 2;
+  width: 40rem;
+  margin-left: 20px;
+  border: .1rem #808080 solid;
+  background-color: #f8f8f8;
+  padding: 1rem;
 }
 
 .details-action{
-  flex: 1 1;
-  width: 70rem;
+  flex: 1 1 ;
+  max-width: 50rem;
   margin-right: 30rem;
-  background-color: blue;
+  margin-left: 20px;
 }
 
 .details-info ul, .details-action ul{
