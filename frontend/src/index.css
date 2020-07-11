@@ -120,6 +120,14 @@ a:hover{
   margin-bottom: 1rem;
 }
 
+.bar-menu:hover{
+  color: #7a7a7a;
+}
+
+.right-icon{
+  margin-right: .5rem;
+}
+
 /* SIDEBAR */
 
 .brand button {

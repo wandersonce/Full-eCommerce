@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { detailsProduct } from '../actions/productActions';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 function ProductScreen(props) {
     const [qty, setQty] = useState(1);
@@ -25,7 +27,7 @@ function ProductScreen(props) {
 
         <div>
             <div className="back-to-result">
-                <Link to="/">Back to result</Link>
+                <Link to="/"> &lt; Back to result</Link>
             </div>
             {
                 loading ? <div>Loading...</div> :
@@ -53,8 +55,8 @@ function ProductScreen(props) {
                                 <ul>
                                     <li>Price: ${product.price}</li>
                                     <li>Status:                                         {
-                                        product.countInStock > 0 ? <b>In Stock</b>
-                                            : <b className="out-stock">Out of stock</b>
+                                        product.countInStock > 0 ? <b>In Stock <FontAwesomeIcon icon={faCheck} style={{ color: "green" }} /> </b>
+                                            : <b className="out-stock">Out of stock  <FontAwesomeIcon icon={faTimes} style={{ color: "red" }} /></b>
                                     }
                                     </li>
                                     <li>

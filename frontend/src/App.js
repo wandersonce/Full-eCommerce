@@ -1,5 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icons';
 
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
@@ -21,14 +23,21 @@ function App() {
         <header className="header">
           <div className="brand">
             <button onClick={openMenu}>
-              &#9776;
-                </button>
+              <FontAwesomeIcon icon={faBars} className="bar-menu" />
+
+            </button>
             <Link to="/">WanderCommerce</Link>
 
           </div>
           <div className="header-links">
-            <a href="cart.html">Cart</a>
-            <a href="signin">Sign In</a>
+            <a href="cart.html">
+              <FontAwesomeIcon icon={faShoppingCart} className="right-icon" />
+                Cart
+            </a>
+            <a href="signin">
+              <FontAwesomeIcon icon={faUser} className="right-icon" />
+              Sign In
+              </a>
           </div>
         </header>
         <aside className="sidebar">

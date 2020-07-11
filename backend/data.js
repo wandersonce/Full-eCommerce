@@ -12,6 +12,7 @@ export default {
             countInStock: 6,
         },
         {
+            _id: '123454',
             name: 'Fit Shirt',
             category: 'Shirts',
             image: '/images/d1.jpg',
@@ -19,7 +20,7 @@ export default {
             brand: 'Nike',
             rating: 4.0,
             numReviews: 7,
-            countInStock: 10
+            countInStock: 0
         },
         {
             _id: '1234',
