@@ -1,8 +1,7 @@
-const { default: Axios } = require("axios")
 import axios from 'axios';
 import { CART_ADD_ITEM } from '../constants/cartConstants';
 
-const addToCart = (productId, qty) => async (dipatch) => {
+const addToCart = (productId, qty) => async (dispatch) => {
     try {
         const { data } = await axios.get("/api/products/" + productId);
         dispatch({

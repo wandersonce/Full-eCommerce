@@ -7,9 +7,15 @@ function cartReducer(state = { cartItems: [] }, action) {
             const product = state.cartItems.find(x => x.product === item.product);
 
             if (product) {
-                return { ...state, cartItems: state.cartItems.map(x => x.product === product.product ? product : x) } //it will update the cart items with the new value
+                return {
+                    cartItems:
+                        state.cartItems.map(x => x.product === product.product ? product : x) //it will update the cart items with the new value
+                }
             }
             return { cartItems: [...state.cartItems, item] }
+
+        default:
+            return state
 
     }
 }
