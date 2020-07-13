@@ -55,8 +55,8 @@ function ProductScreen(props) {
                                 <ul>
                                     <li>Price: ${product.price}</li>
                                     <li>Status:                                         {
-                                        product.countInStock > 0 ? <b>In Stock <FontAwesomeIcon icon={faCheck} style={{ color: "green" }} /> </b>
-                                            : <b className="out-stock">Out of stock  <FontAwesomeIcon icon={faTimes} style={{ color: "red" }} /></b>
+                                        product.countInStock > 0 ? <b style={{ color: "green" }} >In Stock <FontAwesomeIcon icon={faCheck} /> </b>
+                                            : <b className="out-stock">Out of stock  <FontAwesomeIcon icon={faTimes} /></b>
                                     }
                                     </li>
                                     <li>
