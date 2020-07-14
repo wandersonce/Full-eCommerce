@@ -5,7 +5,7 @@ import { detailsProduct } from '../actions/productActions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons';
 
-function ProductScreen(props) {
+function SigninScreen(props) {
     const [qty, setQty] = useState(1);
 
     const productDetails = useSelector(state => state.productDetails);
@@ -82,5 +82,4 @@ function ProductScreen(props) {
     )
 }
 
-//! PAROU 2:29
-export default ProductScreen;
+export default SigninScreen;

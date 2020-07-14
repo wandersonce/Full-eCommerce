@@ -6,6 +6,7 @@ import { faBars, faShoppingCart, faUser } from '@fortawesome/free-solid-svg-icon
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
 import CartScreen from './screens/CartScreen';
+import SigninScreen from './screens/SigninScreen';
 
 
 function App() {
@@ -35,10 +36,12 @@ function App() {
               <FontAwesomeIcon icon={faShoppingCart} className="right-icon" />
                 Cart
             </a>
-            <a href="signin">
-              <FontAwesomeIcon icon={faUser} className="right-icon" />
+            <Link to="/signin">
+              <a href="signin">
+                <FontAwesomeIcon icon={faUser} className="right-icon" />
               Sign In
               </a>
+            </Link>
           </div>
         </header>
         <aside className="sidebar">
@@ -55,6 +58,7 @@ function App() {
         </aside>
         <main className="main">
           <div className="content">
+            <Route path="/signin" component={SigninScreen} />
             <Route path="/product/:id" component={ProductScreen} />
             <Route path="/cart/:id?" component={CartScreen} />
             <Route path="/" component={HomeScreen} exact={true} />
