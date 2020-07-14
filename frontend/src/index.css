@@ -13,6 +13,14 @@ body{
   height: 100%;
 }
 
+button{
+  font-size: 1.6rem;
+}
+
+.full-width{
+  width: 100%;
+}
+
 .grid-container{
   display: grid;
   grid-template-areas: 

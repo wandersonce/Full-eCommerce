@@ -20,7 +20,11 @@ function CartScreen(props) {
         if (productID) {
             dispatch(addToCart(productID, qty));
         }
-    }, [])
+    }, []);
+
+    const checkoutHandler = () => {
+        props.history.push("/signin?redirect=shipping");
+    };
 
     return (
         <div className="cart">
@@ -76,12 +80,14 @@ function CartScreen(props) {
                     :
                 $ {cartItems.reduce((a, c) => a + c.price * c.qty, 0)}
                 </h3>
-                <button className="button primary" disabled={cartItems.length === 0}>
+                <button onClick={checkoutHandler} className="button primary full-width" disabled={cartItems.length === 0}>
                     Proceed to Checkout
                     </button>
             </div>
         </div>
     )
 }
+
+//!! PAROU EM 3:01
 
 export default CartScreen;
