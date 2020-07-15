@@ -88,6 +88,4 @@ function CartScreen(props) {
     )
 }
 
-//!! PAROU EM 3:01
-
 export default CartScreen;

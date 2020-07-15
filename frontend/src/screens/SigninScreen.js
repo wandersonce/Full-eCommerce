@@ -28,7 +28,7 @@ function ProductScreen(props) {
             <form onSubmit={submitHandler}>
                 <ul className="form-container">
                     <li>
-                        <h3>Signin</h3>
+                        <h2>Sign-In</h2>
                     </li>
                     <li>
                         <label for="email">
@@ -47,7 +47,7 @@ function ProductScreen(props) {
                         New to WanderCommerce?
                     </li>
                     <li>
-                        <Link to="/register" className="button full-width">Create your WanderCommerce account</Link>
+                        <Link to="/register" className="button text-center secondary">Create your WanderCommerce account</Link>
                     </li>
                 </ul>
             </form>
