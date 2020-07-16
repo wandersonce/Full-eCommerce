@@ -42,7 +42,7 @@ router.post('/register', async (req, res) => {
 
 
     } else {
-        res.status(401).send({ message: 'Invalid Email or Password.' });
+        res.status(401).send({ message: 'Invalid User data' });
     }
 });
 
