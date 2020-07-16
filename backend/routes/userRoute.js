@@ -38,4 +38,6 @@ router.get('/createadmin', async (req, res) => {
     }
 });
 
+//! PAROU 3:46
+
 export default router;

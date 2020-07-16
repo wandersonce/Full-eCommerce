@@ -3,7 +3,6 @@ import config from './config';
 
 //Creating a token to validate when use is navigating on the page
 const getToken = (user) => {
-    console.log(user);
     return jwt.sign(
         {
             _id: user._id,

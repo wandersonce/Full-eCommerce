@@ -7,9 +7,13 @@ import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
 import CartScreen from './screens/CartScreen';
 import SigninScreen from './screens/SigninScreen';
+import { useSelector } from 'react-redux';
 
 
 function App() {
+
+  const userSignin = useSelector(state => state.userSignin);
+  const { userInfo } = userSignin;
 
   const openMenu = () => {  //* Sidebar open function.
     document.querySelector(".sidebar").classList.add("open");
@@ -36,12 +40,15 @@ function App() {
               <FontAwesomeIcon icon={faShoppingCart} className="right-icon" />
                 Cart
             </a>
-            <Link to="/signin">
-              <a href="signin">
-                <FontAwesomeIcon icon={faUser} className="right-icon" />
+
+            {
+              userInfo ? <Link to="/profile">{userInfo.name}</Link> :
+                <Link to="/signin">
+                  <FontAwesomeIcon icon={faUser} className="right-icon" />
               Sign In
-              </a>
-            </Link>
+              </Link>
+            }
+
           </div>
         </header>
         <aside className="sidebar">
