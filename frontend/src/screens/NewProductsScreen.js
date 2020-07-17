@@ -5,6 +5,9 @@ import { saveProduct, listProducts } from '../actions/productActions';
 
 function NewProductsScreen(props) {
 
+    const [modalVisible, setModalVisible] = useState(false);
+
+    const [id, setId] = useState('');
     const [name, setName] = useState('');
     const [price, setPrice] = useState('');
     const [image, setImage] = useState('');
@@ -25,9 +28,24 @@ function NewProductsScreen(props) {
         }
     }, []);
 
+    const openModal = (product) => {
+        setModalVisible(true);
+
+        setId(product._id);
+        setName(product.name);
+        setPrice(product.price);
+        setImage(product.image);
+        setDescription(product.description);
+        setBrand(product.brand);
+        setCategory(product.category);
+        setCountInStock(product.countInStock);
+    }
+
+
     const submitHandler = (e) => {
         e.preventDefault();
         dispatch(saveProduct({
+            _id: id,
             name, price, image, category,
             description, brand, countInStock
         }));
@@ -39,69 +57,78 @@ function NewProductsScreen(props) {
         <div className="content constent-margined">
             <div className="product-header">
                 <h3>Producst</h3>
-                <button>Create Product</button>
+                <button onClick={() => openModal({})}>Create Product</button>
             </div>
 
-            <div className="form">
+
+            {modalVisible &&
+                (
+                    <div className="form">
+                        <form onSubmit={submitHandler}>
+                            <ul className="form-container">
+                                <li>
+                                    <h2>Create Product</h2>
+                                </li>
+                                <li>
+                                    {loadingSave && <div>Loading...</div>}
+                                    {errorSave && <div>{errorSave}</div>}
+                                </li>
+                                <li>
+                                    <label htmlFor="name">
+                                        Name
+                    </label>
+                                    <input type="text" name="name" value={name} id="name" onChange={(e) => setName(e.target.value)} />
+                                </li>
+                                <li>
+                                    <label htmlFor="price">
+                                        Price
+                    </label>
+                                    <input type="text" name="price" value={price} id="price" onChange={(e) => setPrice(e.target.value)} />
+                                </li>
+                                <li>
+                                    <label htmlFor="image">
+                                        Image
+                    </label>
+                                    <input type="text" name="image" value={image} id="image" onChange={(e) => setImage(e.target.value)} />
+                                </li>
+                                <li>
+                                    <label htmlFor="brand">
+                                        Brand
+                    </label>
+                                    <input type="text" name="brand" value={brand} id="brand" onChange={(e) => setBrand(e.target.value)} />
+                                </li>
+                                <li>
+                                    <label htmlFor="category">
+                                        Category
+                    </label>
+                                    <input type="text" name="category" value={category} id="category" onChange={(e) => setCategory(e.target.value)} />
+                                </li>
+                                <li>
+                                    <label htmlFor="countInStock">
+                                        Count in Stock
+                    </label>
+                                    <input type="text" name="countInStock" value={countInStock} id="countInStock" onChange={(e) => setCountInStock(e.target.value)} />
+                                </li>
+                                <li>
+                                    <label htmlFor="Description">
+                                        Description
+                    </label>
+                                    <textarea name="Description" value={description} id="Description" onChange={(e) => setDescription(e.target.value)} />
+                                </li>
+                                <li>
+                                    <button type="submit" className="button primary">{id ? "Update" : "Create"}</button>
+                                </li>
+                                <li>
+                                    <button type="button" className="button secondary" onClick={() => setModalVisible(false)}>Back</button>
+                                </li>
+                            </ul>
+                        </form>
+                    </div>
+
+                )
+            }
 
 
-                <form onSubmit={submitHandler}>
-                    <ul className="form-container">
-                        <li>
-                            <h2>Create Product</h2>
-                        </li>
-                        <li>
-                            {loadingSave && <div>Loading...</div>}
-                            {errorSave && <div>{errorSave}</div>}
-                        </li>
-                        <li>
-                            <label htmlFor="name">
-                                Name
-                        </label>
-                            <input type="text" name="name" id="name" onChange={(e) => setName(e.target.value)} />
-                        </li>
-                        <li>
-                            <label htmlFor="price">
-                                Price
-                        </label>
-                            <input type="text" name="price" id="price" onChange={(e) => setPrice(e.target.value)} />
-                        </li>
-                        <li>
-                            <label htmlFor="image">
-                                Image
-                        </label>
-                            <input type="text" name="image" id="image" onChange={(e) => setImage(e.target.value)} />
-                        </li>
-                        <li>
-                            <label htmlFor="brand">
-                                Brand
-                        </label>
-                            <input type="text" name="brand" id="brand" onChange={(e) => setBrand(e.target.value)} />
-                        </li>
-                        <li>
-                            <label htmlFor="category">
-                                Category
-                        </label>
-                            <input type="text" name="category" id="category" onChange={(e) => setCategory(e.target.value)} />
-                        </li>
-                        <li>
-                            <label htmlFor="countInStock">
-                                Count in Stock
-                        </label>
-                            <input type="text" name="countInStock" id="countInStock" onChange={(e) => setCountInStock(e.target.value)} />
-                        </li>
-                        <li>
-                            <label htmlFor="Description">
-                                Description
-                        </label>
-                            <textarea name="Description" id="Description" onChange={(e) => setDescription(e.target.value)} />
-                        </li>
-                        <li>
-                            <button type="submit" className="button primary">Create</button>
-                        </li>
-                    </ul>
-                </form>
-            </div>
             <div className="product-list">
                 <table>
                     <thead>
@@ -125,8 +152,8 @@ function NewProductsScreen(props) {
                                     <td>{product.brand}</td>
 
                                     <td>
-                                        <button>Edit</button>
-                                        <button>Delete</button>
+                                        <button onClick={() => openModal(product)} >Edit</button>
+                                        <button >Delete</button>
                                     </td>
                                 </tr>
                             ))}
