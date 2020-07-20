@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { saveProduct, listProducts } from '../actions/productActions';
+import { saveProduct, listProducts, deleteProduct } from '../actions/productActions';
 
 
 function NewProductsScreen(props) {
@@ -17,16 +17,21 @@ function NewProductsScreen(props) {
     const [description, setDescription] = useState('');
     const productList = useSelector(state => state.productList);
     const { loading, products, error } = productList;
-    const productSave = useSelector(state => state.userSignin);
+    const productSave = useSelector(state => state.productSave);
+    const productDelete = useSelector(state => state.productDelete);
     const { loading: loadingSave, success: successSave, error: errorSave } = productSave;
+    const { loading: loadingDelete, success: successDelete, error: errorDelete } = productDelete;
     const dispatch = useDispatch();
 
     useEffect(() => {
+        if (successSave) {
+            setModalVisible(false);
+        }
         dispatch(listProducts());
         return () => {
             //
         }
-    }, []);
+    }, [successSave, successDelete]);
 
     const openModal = (product) => {
         setModalVisible(true);
@@ -52,6 +57,9 @@ function NewProductsScreen(props) {
 
     }
 
+    const deleteHandle = (product) => {
+        dispatch(deleteProduct(product._id));
+    }
 
     return (
         <div className="content constent-margined">
@@ -153,7 +161,7 @@ function NewProductsScreen(props) {
 
                                     <td>
                                         <button onClick={() => openModal(product)} >Edit</button>
-                                        <button >Delete</button>
+                                        <button onClick={() => deleteHandle(product)}>Delete</button>
                                     </td>
                                 </tr>
                             ))}
