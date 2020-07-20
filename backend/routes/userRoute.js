@@ -51,12 +51,12 @@ router.get('/createadmin', async (req, res) => {
     try {
         const user = new User({
             name: 'Wanderson',
-            email: 'wandersonce1@hotmail.com',
+            email: 'wanderson.o.castro@gmail.com',
             password: '1234',
             isAdmin: true,
         });
         const newUser = await user.save();
-        res.send(newUser);
+        res.send(newUser, console.log('SAVED'));
     } catch (error) {
         res.send({ message: error.message });
     }
