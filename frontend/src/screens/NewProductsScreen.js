@@ -65,9 +65,8 @@ function NewProductsScreen(props) {
         <div className="content constent-margined">
             <div className="product-header">
                 <h3>Producst</h3>
-                <button onClick={() => openModal({})}>Create Product</button>
+                <button className="button primary" onClick={() => openModal({})}>Create Product</button>
             </div>
-
 
             {modalVisible &&
                 (
@@ -138,7 +137,7 @@ function NewProductsScreen(props) {
 
 
             <div className="product-list">
-                <table>
+                <table className="table">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -160,8 +159,9 @@ function NewProductsScreen(props) {
                                     <td>{product.brand}</td>
 
                                     <td>
-                                        <button onClick={() => openModal(product)} >Edit</button>
-                                        <button onClick={() => deleteHandle(product)}>Delete</button>
+                                        <button className="button" onClick={() => openModal(product)} >Edit</button>
+                                        {' '}
+                                        <button className="button" onClick={() => deleteHandle(product)}>Delete</button>
                                     </td>
                                 </tr>
                             ))}

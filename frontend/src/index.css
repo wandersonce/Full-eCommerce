@@ -353,3 +353,29 @@ input{
 .text-center{
   text-align: center;
 }
+
+/* PRODUCTS */
+
+.product-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 1rem;
+}
+
+.content-margined{
+  margin: 1rem;
+}
+
+.table{
+  width: 100%;
+}
+
+th{
+  text-align: left;
+  font-size: 20px;
+}
+
+tbody>tr:nth-child(odd){
+  background-color: #f0f0f0;
+}
