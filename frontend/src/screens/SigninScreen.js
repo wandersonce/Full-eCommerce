@@ -12,9 +12,11 @@ function ProductScreen(props) {
     const { loading, userInfo, error } = userSignin;
     const dispatch = useDispatch();
 
+    const redirect = props.location.search ? props.location.search.split("=")[1] : "/";
+
     useEffect(() => {
         if (userInfo) { //* It will check if userInfo exists to redirect to homepage
-            props.history.push("/");
+            props.history.push(redirect);
         }
         return () => {
             //
@@ -57,7 +59,7 @@ function ProductScreen(props) {
                         New to WanderCommerce?
                     </li>
                     <li>
-                        <Link to="/register" className="button text-center secondary">Create your WanderCommerce account</Link>
+                        <Link to={redirect === "/" ? "register" : "register?redirect=" + redirect} className="button text-center secondary">Create your WanderCommerce account</Link>
                     </li>
                 </ul>
             </form>
