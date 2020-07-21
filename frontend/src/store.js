@@ -8,7 +8,7 @@ import { userSigninReducer, userRegisterReducer } from './reducers/userReducers'
 const cartItems = Cookie.getJSON("cartItems") || []; // Get cookies from to determine your cart
 const userInfo = Cookie.getJSON("userInfo") || null; //* It will check if the user is logged
 
-const initialState = { cart: { cartItems }, userSignin: { userInfo } };
+const initialState = { cart: { cartItems: [], shipping: {}, payment: {} }, userSignin: { userInfo } };
 const reducer = combineReducers({   //* Just using the function from reducers and using with a different name.
     productList: productListReducer,
     productDetails: productDetailsReducer,

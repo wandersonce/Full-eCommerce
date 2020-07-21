@@ -400,3 +400,53 @@ tbody>tr:nth-child(odd){
   border-top: .3rem #f08000 solid;
   color: #f08000;
 }
+
+/* PLACE ORDER */
+
+.placeOrder {
+  display: flex;
+  flex-grow: wrap;
+  padding: 1rem;
+  justify-content: space-between;
+}
+
+.placeOrder-info{
+  flex: 3 1 60rem;
+}
+
+.placeOrder-action{
+  flex: 1 1 20rem;
+  border: .1rem #c0c0c0 solid;
+  border-radius: .5rem;
+  background-color: #fcfcfc;
+  padding: 1rem;
+ }
+
+ .placeOrder-info >div {
+  border: .1rem #c0c0c0 solid;
+  border-radius: .5rem;
+  background-color: #fcfcfc;
+  padding: 1rem;
+  margin: 1rem;
+ }
+
+ .placeOrder-info > div:first-child{
+   margin-top: 0;
+ }
+
+ .placeOrder-action > ul {
+   padding: 0;
+   list-style-type: none;
+ }
+
+ .placeOrder-action >ul >li {
+   display: flex;
+   justify-content:  space-between;
+   margin-bottom: 1rem;
+ }
+
+ .placeOrder-action >ul >li:last-child {
+font-size: 2rem;
+font-weight: bold;
+color: #c04000;
+}
