@@ -1,5 +1,4 @@
 import express from 'express';
-import data from './data';
 import dotenv from 'dotenv';
 import config from './config';
 import mongoose from 'mongoose';
@@ -19,7 +18,7 @@ mongoose.connect(mongodbUrl, {
 const app = express();
 app.use(bodyParser.json())
 
-app.use("/api/users", userRoute);
+app.use("/api/users/", userRoute);
 app.use("/api/products", productRoute);
 
 app.listen(5000, () => {

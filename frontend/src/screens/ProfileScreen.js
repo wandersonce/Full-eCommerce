@@ -37,51 +37,52 @@ function ProfileScreen(props) {
 
         };
     }, [userInfo])
-}
 
-return (
-    <div className="profile">
-        <div className="profile-info">
-            <div className="form">
-                <form onSubmit={submitHandler}>
-                    <ul className="form-container">
-                        <li>
-                            <h2>User Profile</h2>
-                        </li>
-                        <li>
-                            {loading && <div>Loading...</div>}
-                            {error && <div>{error}</div>}
-                            {success && <div>Profile Saved Successfully</div>}
-                        </li>
-                        <li>
-                            <label htmlFor="name">
-                                Name
+
+    return (
+        <div className="profile">
+            <div className="profile-info">
+                <div className="form">
+                    <form onSubmit={submitHandler}>
+                        <ul className="form-container">
+                            <li>
+                                <h2>User Profile</h2>
+                            </li>
+                            <li>
+                                {loading && <div>Loading...</div>}
+                                {error && <div>{error}</div>}
+                                {success && <div>Profile Saved Successfully</div>}
+                            </li>
+                            <li>
+                                <label htmlFor="name">
+                                    Name
                             </label>
-                            <input type="name" name="name" id="name" value={name} onChange={() => setName(e.target.name)} />
-                        </li>
-                        <li>
-                            <label htmlFor="email">
-                                Email
+                                <input type="name" name="name" id="name" value={name} onChange={(e) => setName(e.target.value)} />
+                            </li>
+                            <li>
+                                <label htmlFor="email">
+                                    Email
                             </label>
-                            <input type="email" name="email" id="email" value={email} onChange={() => setEmail(e.target.name)} />
-                        </li>
-                        <li>
-                            <label htmlFor="password">
-                                Password
+                                <input type="email" name="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                            </li>
+                            <li>
+                                <label htmlFor="password">
+                                    Password
                             </label>
-                            <input type="password" name="password" id="password" value={name} onChange={() => setPassword(e.target.name)} />
-                        </li>
-                        <li>
-                            <button type="submit" className="button primary"> Update</button>
-                        </li>
-                        <li>
-                            <button type="submit" onClick={handleLogout} className="button secondary full-width"> Logout</button>
-                        </li>
-                    </ul>
-                </form>
+                                <input type="password" name="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                            </li>
+                            <li>
+                                <button type="submit" className="button primary"> Update</button>
+                            </li>
+                            <li>
+                                <button type="submit" onClick={handleLogout} className="button secondary full-width"> Logout</button>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
-)
+    )
+};
 
 export default ProfileScreen;

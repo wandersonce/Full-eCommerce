@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import Cookie from 'js-cookie';
 import { productListReducer, productDetailsReducer, productSaveReducer, productDeleteReducer } from './reducers/productReducers';
 import { cartReducer } from './reducers/cartReducers';
-import { userSigninReducer, userRegisterReducer } from './reducers/userReducers';
+import { userSigninReducer, userRegisterReducer, userUpdateReducer } from './reducers/userReducers';
 
 const cartItems = Cookie.getJSON("cartItems") || []; // Get cookies from to determine your cart
 const userInfo = Cookie.getJSON("userInfo") || null; //* It will check if the user is logged
@@ -17,6 +17,7 @@ const reducer = combineReducers({   //* Just using the function from reducers an
     userRegister: userRegisterReducer,
     productSave: productSaveReducer,
     productDelete: productDeleteReducer,
+    userUpdate: userUpdateReducer,
 });
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; //* It will check if you have the extension Redux_DevTolls if not will use the compose itself.
