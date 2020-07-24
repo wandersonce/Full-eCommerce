@@ -42,10 +42,11 @@ function App() {
 
           </div>
           <div className="header-links">
-            <a href="cart.html">
+            <Link to="/cart">
               <FontAwesomeIcon icon={faShoppingCart} className="right-icon" />
                 Cart
-            </a>
+                </Link>
+
 
             {
               userInfo ? <Link to="/profile">{userInfo.name}</Link> :
