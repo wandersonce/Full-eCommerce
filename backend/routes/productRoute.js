@@ -18,7 +18,7 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-router.post("/", isAdmin, isAuth, async (req, res) => {
+router.post("/", /*isAdmin, isAuth,*/ async (req, res) => {
     const product = new Product({
         name: req.body.name,
         image: req.body.image,
